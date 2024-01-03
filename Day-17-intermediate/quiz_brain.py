@@ -8,7 +8,8 @@ class QuizBrain():
     def next_question(self):
         self.current_question = self.question_list[self.question_number]
         self.question_number += 1
-        answer = input(f"Q.{self.question_number}: {self.current_question.text} (True/False): ")
+        answer = input(f"Q.{self.question_number}: {self.current_question.text}"
+                       f" (True/False): ")
         if answer == self.current_question.answer.lower():
             print("You got it right!")
             self.score += 1
