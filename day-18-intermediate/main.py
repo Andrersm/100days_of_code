@@ -1,23 +1,37 @@
+import colorgram
+
+colors = colorgram.extract('obra_66205.jpg', 7)
+
 from turtle import Turtle, Screen, colormode
 import random
+
 colormode(255)
 joel = Turtle()
-joel.shape("turtle")
+joel.shape("arrow")
 joel.color("green")
-joel.speed("fastest")
-joel.pensize(1)
-
-directions = [0, 90, 180, 270]
-my_tuple = (21, 13, 250)
-angle = 2
-while angle <= 360:
-    a = random.randint(0, 255)
-    b = random.randint(0, 255)
-    c = random.randint(0, 255)
-    joel.pencolor((a, b, c))
-    joel.circle(100)
-    joel.left(3)
-    angle += 2
-
+joel.pensize(20)
+number_x = -150
+number_y = 0
+i = 0
+color_list = []
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    new_color = (r, g, b)
+    color_list.append(new_color)
+x = 0
+while x < 10:
+    i = 0
+    while i <= 10:
+        joel.teleport(x=number_x, y=number_y,)
+        joel.pencolor(random.choice(color_list))
+        joel.forward(1)
+        number_x += 30
+        i += 1
+    number_x = -150
+    x += 1
+    number_y += 30
+    joel.teleport(x=number_x, y=number_y)
 screen = Screen()
 screen.exitonclick()
