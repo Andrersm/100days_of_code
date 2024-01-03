@@ -8,20 +8,15 @@ class QuizBrain():
     def next_question(self):
         self.current_question = self.question_list[self.question_number]
         self.question_number += 1
-        
         answer = input(f"Q.{self.question_number}: {self.current_question.text} (True/False): ")
-        if answer == self.current_question.answer:
+        if answer == self.current_question.answer.lower():
             print("You got it right!")
             self.score += 1
         else:
             print("That's wrong.")
- 
+
     def still_has_questions(self):
         if self.question_number < len(self.question_list):
             return True
         else:
             return False
-        
-    
-        
-
